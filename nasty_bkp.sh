@@ -8,9 +8,6 @@ directory_to_bkp=$1
 
 make_tar(){
 tar -cvzf bkp."$file_name".tar.gz "$directory_to_bkp" | (pv -p --timer --rate --bytes >"$file_name".tar.gz)
-#tar -cvzf bkp."$file_name".tar.gz "$directory_to_bkp"
-# tar -czf - ./Downloads/ | (pv -p --timer --rate --bytes > backup.tgz)
-
 scp_tar
 }
 
@@ -23,7 +20,7 @@ echo "scooping file"
 
 	scp bkp."$file_name".tar.gz "$User"@"$ip_address_location"
 
-echo "scooping to server done"
+echo "scooping file done"
 
 delete_tar
 }
@@ -39,7 +36,6 @@ echo "deleting local file"
 	rm $file_name.tar.gz
 echo "deleting local file done"
 
-echo "Completed backup"
 }
 
 
