@@ -35,6 +35,7 @@ echo "deleting local file"
 	rm bkp.$file_name.tar.gz
 	rm $file_name.tar.gz
 echo "deleting local file done"
+notify-send "Backup Complete."
 
 }
 
